@@ -41,13 +41,27 @@ public class Anggota
         // TODO(Level 2): id/nama null/kosong/spasi -> ArgumentException; alamat
         //   null -> ArgumentNullException; selain itu isi Id, Nama, Alamat
         //   (simpan objek Alamat yang sama, jangan disalin).
-        throw new NotImplementedException("Level 2 belum diimplementasikan");
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            throw new ArgumentException("ID tidak boleh kosong atau hanya berisi spasi.", nameof(id));
+        }
+
+        if (string.IsNullOrWhiteSpace(nama))
+        {
+            throw new ArgumentException("Nama tidak boleh kosong atau hanya berisi spasi.", nameof(nama));
+        }
+
+        if (alamat == null)
+        {
+            throw new ArgumentNullException(nameof(alamat));
+        }
+
     }
 
     public string Info()
     {
         // TODO(Level 2): kembalikan "<Id> - <Nama>" (contoh: "M01 - Sari").
-        throw new NotImplementedException("Level 2 belum diimplementasikan");
+        return $"{Id } - {Nama}";}"
     }
 
     // TODO(Level 9): setiap peminjaman yang berhasil juga dicatat ke log:
