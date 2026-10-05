@@ -61,7 +61,7 @@ public class Anggota
     public string Info()
     {
         // TODO(Level 2): kembalikan "<Id> - <Nama>" (contoh: "M01 - Sari").
-        return $"{Id } - {Nama}";}"
+        return $"{Id} - {Nama}";
     }
 
     // TODO(Level 9): setiap peminjaman yang berhasil juga dicatat ke log:
