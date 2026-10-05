@@ -22,3 +22,49 @@ classDiagram
 Jangan hapus baris penanda di bawah ini — jawaban kalian harus ditulis **setelah** baris itu, bukan sebelumnya.
 
 <!-- TULIS JAWABAN KALIAN DI BAWAH BARIS INI -->
+
+classDiagram
+    Anggota <|-- Mahasiswa
+    Anggota <|-- Dosen
+    Mahasiswa <|-- Asisten
+    Anggota *-- Alamat
+    Anggota *-- LogAktivitas
+
+    class Alamat {
+        +string Jalan
+        +string Kota
+        +ToString() string
+    }
+
+    class LogAktivitas {
+        +IReadOnlyList~string~ Semua
+        +Catat(string aktivitas) void
+    }
+
+    class Anggota {
+        +string Id
+        +string Nama
+        +Alamat Alamat
+        #int BatasPinjam
+        +int JumlahPinjam
+        -LogAktivitas _log
+        +IReadOnlyList~string~ Riwayat
+        +Info() string
+        +Pinjam(string judul) void
+    }
+
+    class Mahasiswa {
+        +string Nrp
+        +string Prodi
+        +InfoLengkap() string
+    }
+
+    class Dosen {
+        +string Nip
+        +InfoLengkap() string
+    }
+
+    class Asisten {
+        +string MataKuliah
+        +InfoAsisten() string
+    }
