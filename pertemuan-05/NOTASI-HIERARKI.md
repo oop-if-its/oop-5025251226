@@ -23,12 +23,13 @@ Jangan hapus baris penanda di bawah ini — jawaban kalian harus ditulis **setel
 
 <!-- TULIS JAWABAN KALIAN DI BAWAH BARIS INI -->
 
-classDiagram
-    Anggota <|-- Mahasiswa
-    Anggota <|-- Dosen
-    Mahasiswa <|-- Asisten
-    Anggota *-- Alamat
-    Anggota *-- LogAktivitas
+
+    classDiagram
+        Anggota <|-- Mahasiswa
+        Anggota <|-- Dosen
+        Mahasiswa <|-- Asisten
+        Anggota *-- Alamat
+        Anggota *-- LogAktivitas
 
     class Alamat {
         +string Jalan
