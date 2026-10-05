@@ -17,6 +17,8 @@ public class Mahasiswa : Anggota
     public Mahasiswa(string id, string nama, Alamat alamat, string nrp, string prodi)
         : base(id, nama, alamat)
     {
+        BatasPinjam = 3;
+
         // TODO(Level 3): nrp/prodi null/kosong/spasi -> ArgumentException;
         //   selain itu isi Nrp dan Prodi. (Konstruktor kelas induk sudah
         //   dipanggil lewat `: base(...)` di atas.)

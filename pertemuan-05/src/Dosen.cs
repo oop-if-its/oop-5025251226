@@ -14,6 +14,8 @@ public class Dosen : Anggota
     public Dosen(string id, string nama, Alamat alamat, string nip)
         : base(id, nama, alamat)
     {
+        BatasPinjam = 10;
+
         // TODO(Level 3): nip null/kosong/spasi -> ArgumentException; selain itu
         //   isi Nip
         if (string.IsNullOrWhiteSpace(nip))
