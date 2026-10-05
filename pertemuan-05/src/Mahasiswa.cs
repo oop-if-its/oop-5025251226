@@ -20,7 +20,18 @@ public class Mahasiswa : Anggota
         // TODO(Level 3): nrp/prodi null/kosong/spasi -> ArgumentException;
         //   selain itu isi Nrp dan Prodi. (Konstruktor kelas induk sudah
         //   dipanggil lewat `: base(...)` di atas.)
-        throw new NotImplementedException("Level 3 belum diimplementasikan");
+        if (string.IsNullOrWhiteSpace(nrp))
+        {
+            throw new ArgumentException("NRP tidak boleh kosong atau hanya berisi spasi.", nameof(nrp));
+        }
+
+        if (string.IsNullOrWhiteSpace(prodi))
+        {
+            throw new ArgumentException("Program Studi tidak boleh kosong atau hanya berisi spasi.", nameof(prodi));
+        }
+
+        Nrp = nrp;
+        Prodi = prodi;
     }
 
     public string InfoLengkap()
