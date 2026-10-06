@@ -51,4 +51,13 @@ public class Item
     // TODO(Level 10 (bonus)): override Equals(object?) dan GetHashCode(): dua
     //   Item dianggap SAMA bila jenis (GetType()) sama DAN Judul sama (huruf
     //   besar/kecil diabaikan). GetHashCode harus konsisten dengan Equals.
+    public override bool Equals(object? obj)
+    {
+        if (obj is Item other)
+        {
+            return GetType() == other.GetType() && string.Equals(Judul, other.Judul, StringComparison.OrdinalIgnoreCase);
+        }
+        return false;
+    }
+       
 }
