@@ -26,6 +26,7 @@ public class Majalah : Item
     }
 
     // TODO(Level 4): override MasaPinjamHari -> 3.
+    public override MasaPinjamHari => 3;
 
     // TODO(Level 5): override Deskripsi() -> "<base.Deskripsi()> edisi <Edisi>",
     //   mis. "[Tempo] edisi 12".
