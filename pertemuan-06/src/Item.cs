@@ -38,14 +38,14 @@ public class Item
     public string Deskripsi()
     {
         // TODO(Level 5): kembalikan "[<Judul>]" -- mis. "[Bumi Manusia]".
-        throw new NotImplementedException("Level 5 belum diimplementasikan");
+        return $"[{Judul}]";
     }
 
     public override string ToString()
     {
         // TODO(Level 5): kembalikan Deskripsi() (dipanggil secara polimorfik --
         //   jenis objek yang sebenarnya menentukan hasilnya).
-        throw new NotImplementedException("Level 5 belum diimplementasikan");
+        return Deskripsi();
     }
 
     // TODO(Level 10 (bonus)): override Equals(object?) dan GetHashCode(): dua
