@@ -20,6 +20,11 @@ public class Majalah : Item
     // TODO(Level 3): override HitungDenda(int): Rp500 per hari terlambat
     //   (hariTerlambat <= 0 -> 0).
 
+    public override int HitungDenda(int hariTerlambat)
+    {
+        return Math.Max(0, hariTerlambat * 500);
+    }
+
     // TODO(Level 4): override MasaPinjamHari -> 3.
 
     // TODO(Level 5): override Deskripsi() -> "<base.Deskripsi()> edisi <Edisi>",
