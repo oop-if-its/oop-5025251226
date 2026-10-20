@@ -23,7 +23,7 @@ public interface IDapatDiperpanjang
 
 // TODO(Level 8): implementasikan IDapatDicetak (implementasi biasa / implisit --
 //   method Cetak() bersifat public).
-public class Buku : Item
+public class Buku : Item, IDapatDiperpanjang
 {
     public string Penulis { get; }
 
@@ -62,12 +62,31 @@ public class Buku : Item
         JumlahPerpanjangan = 0;
     }
 
+
+
     // TODO(Level 4): implementasi IDapatDiperpanjang. JumlahPerpanjangan (get
     //   publik, set private) mulai 0. Perpanjang(): kalau buku TIDAK sedang
     //   dipinjam -> InvalidOperationException; kalau JumlahPerpanjangan sudah 2
     //   -> kembalikan false (tidak berubah); selain itu naikkan satu dan
     //   kembalikan true.
+    public int JumlahPerpanjangan { get; private set; }
+
+    public bool Perpanjang()
+    {
+        if (!_status.Dipinjam)
+            throw new InvalidOperationException("Buku tidak sedang dipinjam.");
+
+        if (JumlahPerpanjangan >= 2)
+            return false;
+
+        JumlahPerpanjangan++;
+        return true;
+    }
 
     // TODO(Level 8): implementasi IDapatDicetak -> "Buku: <Judul> oleh
     //   <Penulis>".
+    public string Cetak()
+    {
+        return $"Buku: {Judul} oleh {Penulis}";
+    }
 }
