@@ -13,8 +13,24 @@ public static class Katalog
         // TODO(Level 5): null -> ArgumentNullException. Panggil Pinjam() pada
         //   tiap elemen; kalau sebuah elemen melempar InvalidOperationException
         //   (sedang dipinjam), lewati tanpa menghentikan yang lain. Kembalikan
-        //   JUMLAH yang berhasil dipinjam.
-        throw new NotImplementedException("Level 5 belum diimplementasikan");
+        //   JUMLAH yang berhasil dipinjam
+        if (daftar == null)
+            throw new ArgumentNullException(nameof(daftar));
+
+        int jumlah = 0;
+        foreach (var item in daftar)
+        {
+            try
+            {
+                item.Pinjam();
+                jumlah++;
+            }
+            catch (InvalidOperationException)
+            {
+                // Lewati item yang sedang dipinjam
+            }
+        }
+        return jumlah;
     }
 
     public static List<IDapatDipinjam> HanyaBisaDipinjam(IEnumerable<Item> daftar)
@@ -22,7 +38,10 @@ public static class Katalog
         // TODO(Level 5): null -> ArgumentNullException. Dari campuran Item,
         //   ambil hanya yang mengimplementasikan IDapatDipinjam (urutan asli
         //   dipertahankan). BukuReferensi tidak ikut.
-        throw new NotImplementedException("Level 5 belum diimplementasikan");
+        if (daftar == null)
+            throw new ArgumentNullException(nameof(daftar));
+
+        return daftar.OfType<IDapatDipinjam>().ToList();
     }
 }
 
