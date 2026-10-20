@@ -6,6 +6,13 @@
 namespace Pertemuan07;
 
 // TODO(Level 3): implementasikan IDapatDipinjam.
+public interface IDapatDipinjam
+{
+    bool tersedia { get; }
+    void Pinjam();
+    void Kembalikan();
+}
+
 // TODO(Level 8): implementasikan IDapatDicetak dengan cara EKSPLISIT (`string
 //   IDapatDicetak.Cetak()`) -- method-nya tidak muncul di tipe Majalah, hanya
 //   lewat variabel bertipe IDapatDicetak.
@@ -35,6 +42,14 @@ public class Majalah : Item
     public override int MasaPinjamHari => 3;
 
     // TODO(Level 3): implementasi IDapatDipinjam (lihat petunjuk di Buku).
+    // TODO(Level 3): implementasikan IDapatDipinjam.
+    private readonly StatusPinjam _status = new();
+    bool Tersedia => !_status.Dipinjam;
+    void Pinjam() => _status.Tandai();
+    void Kembalikan()
+    {
+        _status.Lepas();
+    }
 
     // TODO(Level 8): implementasi EKSPLISIT IDapatDicetak.Cetak() -> "Majalah:
     //   <Judul> edisi <Edisi>".
