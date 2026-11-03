@@ -24,7 +24,17 @@ public class Rak
         // TODO(Level 4): judul null/kosong/spasi -> ArgumentException; judul
         //   tidak ada di rak ATAU stoknya 0 -> lempar
         //   BukuTidakTersediaException(judul); selain itu kurangi stok satu.
-        throw new NotImplementedException("Level 4 belum diimplementasikan");
+        if (string.IsNullOrWhiteSpace(judul))
+        {
+            throw new ArgumentException("Judul tidak boleh kosong.", nameof(judul));
+        }
+
+        if (!_stok.ContainsKey(judul) || _stok[judul] <= 0)
+        {
+            throw new BukuTidakTersediaException(judul);
+        }
+
+        _stok[judul]--;
     }
 }
 
