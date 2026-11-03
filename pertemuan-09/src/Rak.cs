@@ -59,6 +59,18 @@ public class LayananPinjam
         //   menjalar. Di blok `finally`, naikkan JumlahPercobaan -- harus selalu
         //   bertambah tiap CobaPinjam dipanggil, apa pun hasilnya (sukses,
         //   gagal, atau exception yang menjalar).
-        throw new NotImplementedException("Level 5 belum diimplementasikan");
+        try
+        {
+            _rak.Ambil(judul);
+            return new HasilPinjam(true, $"Berhasil meminjam: {judul}");
+        }
+        catch(BukuTidakTersediaException)
+        {
+            return new HasilPinjam(false, $"Buku '{judul}' tidak tersedia.");
+        }
+        finally
+        {
+            JumlahPercobaan++;
+        }
     }
 }
